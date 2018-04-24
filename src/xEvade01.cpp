@@ -95,9 +95,6 @@ static DWORD WINAPI EvilProc(LPVOID)
 
 void xEvade01(int argc, wchar_t* argv[])
 {
-	xPrint(L"Original: 0x%08x", CreateFileW);
-	xPrint(L"Hidden: 0x%08x", xGetOsApi().GetKernel32().GetFunction(X_OBFUSCATED_STRING_A("CreateFileW")));
-
 	X_KERNEL32_CALL(InitializeCriticalSection)(&g_sync);
 
 	// Acquire access and start evasion thread

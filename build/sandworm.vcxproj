@@ -107,7 +107,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);X_USE_OBFUSCATED_API;X_EVADE_01</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);X_USE_OS_API_DYNAMIC_MODULE;X_EVADE_01</PreprocessorDefinitions>
       <SDLCheck>
       </SDLCheck>
       <ExceptionHandling>false</ExceptionHandling>
@@ -127,7 +127,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);X_USE_OBFUSCATED_API;X_EVADE_01</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);X_USE_OS_API_DYNAMIC_MODULE;X_EVADE_01</PreprocessorDefinitions>
       <SDLCheck>
       </SDLCheck>
       <ExceptionHandling>false</ExceptionHandling>
@@ -149,7 +149,7 @@
       <Optimization>MinSpace</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);X_USE_OBFUSCATED_API;X_EVADE_01</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);X_USE_OS_API_DYNAMIC_MODULE;X_EVADE_01</PreprocessorDefinitions>
       <SDLCheck>
       </SDLCheck>
       <ExceptionHandling>false</ExceptionHandling>
@@ -177,7 +177,7 @@
       <Optimization>MinSpace</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);X_USE_OBFUSCATED_API;X_EVADE_01</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);X_USE_OS_API_DYNAMIC_MODULE;X_EVADE_01</PreprocessorDefinitions>
       <SDLCheck>
       </SDLCheck>
       <ExceptionHandling>false</ExceptionHandling>
