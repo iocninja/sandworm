@@ -13,7 +13,7 @@
 #include "xEvade02.h"
 #include "xUtility.h"
 
-
+#include "xSandboxDetection.h"
 
 int wmain(int argc, wchar_t* argv[])
 {

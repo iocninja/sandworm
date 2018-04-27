@@ -107,7 +107,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);X_USE_OS_API_DYNAMIC_MODULE;X_EVADE_01</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);X_USE_LIB_MALICIOUS_API;X_USE_LIB_MALICIOUS_EXTERNAL_API;X_USE_OS_API_DYNAMIC_MODULE;X_EVADE_01</PreprocessorDefinitions>
       <SDLCheck>
       </SDLCheck>
       <ExceptionHandling>false</ExceptionHandling>
@@ -120,6 +120,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\..\libmalicious\build\Win32\Debug</AdditionalLibraryDirectories>
       <AdditionalDependencies>%(AdditionalDependencies);libmalicious.lib</AdditionalDependencies>
+      <DataExecutionPrevention>false</DataExecutionPrevention>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -127,7 +128,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);X_USE_OS_API_DYNAMIC_MODULE;X_EVADE_01</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);X_USE_LIB_MALICIOUS_API;X_USE_LIB_MALICIOUS_EXTERNAL_API;X_USE_OS_API_DYNAMIC_MODULE;X_EVADE_01</PreprocessorDefinitions>
       <SDLCheck>
       </SDLCheck>
       <ExceptionHandling>false</ExceptionHandling>
@@ -140,6 +141,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\..\libmalicious\build\x64\Debug</AdditionalLibraryDirectories>
       <AdditionalDependencies>%(AdditionalDependencies);libmalicious.lib</AdditionalDependencies>
+      <DataExecutionPrevention>false</DataExecutionPrevention>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -149,7 +151,7 @@
       <Optimization>MinSpace</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);X_USE_OS_API_DYNAMIC_MODULE;X_EVADE_01</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);X_USE_LIB_MALICIOUS_API;X_USE_LIB_MALICIOUS_EXTERNAL_API;X_USE_OS_API_DYNAMIC_MODULE;X_EVADE_01</PreprocessorDefinitions>
       <SDLCheck>
       </SDLCheck>
       <ExceptionHandling>false</ExceptionHandling>
@@ -168,6 +170,7 @@
       </ImageHasSafeExceptionHandlers>
       <AdditionalDependencies>%(AdditionalDependencies);libmalicious.lib</AdditionalDependencies>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
+      <DataExecutionPrevention>false</DataExecutionPrevention>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -177,7 +180,7 @@
       <Optimization>MinSpace</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);X_USE_OS_API_DYNAMIC_MODULE;X_EVADE_01</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);X_USE_LIB_MALICIOUS_API;X_USE_LIB_MALICIOUS_EXTERNAL_API;X_USE_OS_API_DYNAMIC_MODULE;X_EVADE_01</PreprocessorDefinitions>
       <SDLCheck>
       </SDLCheck>
       <ExceptionHandling>false</ExceptionHandling>
@@ -194,6 +197,7 @@
       <AdditionalLibraryDirectories>..\..\libmalicious\build\x64\Release</AdditionalLibraryDirectories>
       <AdditionalDependencies>%(AdditionalDependencies);libmalicious.lib</AdditionalDependencies>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
+      <DataExecutionPrevention>false</DataExecutionPrevention>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

