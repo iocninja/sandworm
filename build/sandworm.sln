@@ -5,12 +5,24 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sandworm", "sandworm.vcxproj", "{192D6788-174D-4EB0-9E90-FF94DC425E95}"
 	ProjectSection(ProjectDependencies) = postProject
+		{B88F9467-50EA-4869-B1EE-C47C55DB6162} = {B88F9467-50EA-4869-B1EE-C47C55DB6162}
 		{F1A238E4-7CA0-4E18-B3E1-DE2B53C5C6DD} = {F1A238E4-7CA0-4E18-B3E1-DE2B53C5C6DD}
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{42D8CED6-7097-46DD-B9A0-5239729C2A10}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libmalicious", "..\..\libmalicious\build\libmalicious.vcxproj", "{F1A238E4-7CA0-4E18-B3E1-DE2B53C5C6DD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sandworm-payload", "..\..\sandworm-payload\build\sandworm-payload.vcxproj", "{0F7CC1C4-A40C-4569-A286-4BF0F694775F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F1A238E4-7CA0-4E18-B3E1-DE2B53C5C6DD} = {F1A238E4-7CA0-4E18-B3E1-DE2B53C5C6DD}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sandworm-payload-downloader", "..\..\sandworm-payload-downloader\build\sandworm-payload-downloader.vcxproj", "{B88F9467-50EA-4869-B1EE-C47C55DB6162}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F7CC1C4-A40C-4569-A286-4BF0F694775F} = {0F7CC1C4-A40C-4569-A286-4BF0F694775F}
+		{F1A238E4-7CA0-4E18-B3E1-DE2B53C5C6DD} = {F1A238E4-7CA0-4E18-B3E1-DE2B53C5C6DD}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +48,22 @@ Global
 		{F1A238E4-7CA0-4E18-B3E1-DE2B53C5C6DD}.Release|x64.Build.0 = Release|x64
 		{F1A238E4-7CA0-4E18-B3E1-DE2B53C5C6DD}.Release|x86.ActiveCfg = Release|Win32
 		{F1A238E4-7CA0-4E18-B3E1-DE2B53C5C6DD}.Release|x86.Build.0 = Release|Win32
+		{0F7CC1C4-A40C-4569-A286-4BF0F694775F}.Debug|x64.ActiveCfg = Debug|x64
+		{0F7CC1C4-A40C-4569-A286-4BF0F694775F}.Debug|x64.Build.0 = Debug|x64
+		{0F7CC1C4-A40C-4569-A286-4BF0F694775F}.Debug|x86.ActiveCfg = Debug|Win32
+		{0F7CC1C4-A40C-4569-A286-4BF0F694775F}.Debug|x86.Build.0 = Debug|Win32
+		{0F7CC1C4-A40C-4569-A286-4BF0F694775F}.Release|x64.ActiveCfg = Release|x64
+		{0F7CC1C4-A40C-4569-A286-4BF0F694775F}.Release|x64.Build.0 = Release|x64
+		{0F7CC1C4-A40C-4569-A286-4BF0F694775F}.Release|x86.ActiveCfg = Release|Win32
+		{0F7CC1C4-A40C-4569-A286-4BF0F694775F}.Release|x86.Build.0 = Release|Win32
+		{B88F9467-50EA-4869-B1EE-C47C55DB6162}.Debug|x64.ActiveCfg = Debug|x64
+		{B88F9467-50EA-4869-B1EE-C47C55DB6162}.Debug|x64.Build.0 = Debug|x64
+		{B88F9467-50EA-4869-B1EE-C47C55DB6162}.Debug|x86.ActiveCfg = Debug|Win32
+		{B88F9467-50EA-4869-B1EE-C47C55DB6162}.Debug|x86.Build.0 = Debug|Win32
+		{B88F9467-50EA-4869-B1EE-C47C55DB6162}.Release|x64.ActiveCfg = Release|x64
+		{B88F9467-50EA-4869-B1EE-C47C55DB6162}.Release|x64.Build.0 = Release|x64
+		{B88F9467-50EA-4869-B1EE-C47C55DB6162}.Release|x86.ActiveCfg = Release|Win32
+		{B88F9467-50EA-4869-B1EE-C47C55DB6162}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

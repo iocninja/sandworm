@@ -6,8 +6,10 @@
 
 #include "xLibMaliciousApi.h"
 #include "xOsApi.h"
+#include "xPayload.h"
 
-#include "xPayloadManager.h"
+#include "xPayload.h"
+
 
 
 // Name
@@ -83,7 +85,7 @@ void xEvade02(int argc, wchar_t* argv[])
 	{
 		if (wcscmp(argv[1], X_OBFUSCATED_STRING_W(X_DO_EVIL_CMD)) == 0)
 		{
-			xPayloadManagerDrop(X_MALWARE_FILE_NAME);
+			//xPayloadDrop("key", s_payload, sizeof(s_payload), X_MALWARE_FILE_NAME);
 		}
 	}
 

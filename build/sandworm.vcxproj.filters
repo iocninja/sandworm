@@ -7,9 +7,6 @@
     <ClInclude Include="..\inc\xPayload.h">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="..\inc\xPayloadManager.h">
-      <Filter>inc</Filter>
-    </ClInclude>
     <ClInclude Include="..\inc\xEvade01.h">
       <Filter>inc</Filter>
     </ClInclude>
@@ -32,9 +29,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\xUtility.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\xPayloadManager.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\xEvade01.cpp">

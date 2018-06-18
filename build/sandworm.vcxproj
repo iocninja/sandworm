@@ -22,14 +22,12 @@
     <ClCompile Include="..\src\sandworm.cpp" />
     <ClCompile Include="..\src\xEvade01.cpp" />
     <ClCompile Include="..\src\xEvade02.cpp" />
-    <ClCompile Include="..\src\xPayloadManager.cpp" />
     <ClCompile Include="..\src\xUtility.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\inc\xEvade01.h" />
     <ClInclude Include="..\inc\xEvade02.h" />
     <ClInclude Include="..\inc\xPayload.h" />
-    <ClInclude Include="..\inc\xPayloadManager.h" />
     <ClInclude Include="..\inc\xUtility.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
